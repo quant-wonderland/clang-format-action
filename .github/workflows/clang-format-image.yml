@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'main'
+      - 'pr_use_18_1_7'
     paths:
       - 'clang-format-docker/**'
       - '.github/workflows/clang-format-image.yml'
@@ -71,7 +72,7 @@ jobs:
           context: .
           file: "clang-format-docker/Dockerfile"
           push: true
-          tags: ${{ env.REGISTRY}}/jidicula/${{ env.IMAGE_NAME}}:${{ env.MAJOR_VERSION }}
+          tags: ${{ env.REGISTRY}}/quant-wonderland/${{ env.IMAGE_NAME}}:${{ env.MAJOR_VERSION }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             "UBUNTU_VERSION=${{ matrix.version-pair.ubuntu }}"
